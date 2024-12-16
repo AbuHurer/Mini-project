@@ -196,3 +196,8 @@ window.mainloop()
 
 ---
 This project demonstrates the power of YOLOv8 for real-time object detection in an intuitive and accessible manner.
+<h2>Acknowledgement</h2>
+<p> I would like to extend my deepest gratitude to Dr. Victor A.I, professor at Maharaja institure of technology Mysore, for his invaluable guidance and support throught the course of this project.</p>
+<hr>
+
+<b><h1><i>"success consists of going from failure to failure without loss of enthusiasm."</i></h1></b>
