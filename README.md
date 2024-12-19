@@ -77,6 +77,21 @@ def select_video():
 - Opens a file dialog to let the user select a video file.
 - Updates the status label with the selected file path.
 
+#### Select Image
+```python
+def select_image():
+    file_path = filedialog.askopenfilename(
+        title="Select Image File",
+        filetypes=[("Image Files", "*.jpg *.jpeg *.png *.bmp")]
+    )
+    if file_path:
+        detect_from_image(file_path)
+    else:
+        status_label.config(text="No image selected.", fg="red")
+```
+- Opens a file dialog to let the user select an image file.
+- Updates the status label with the selected file path.
+
 #### Start Detection
 ```python
 def start_detection():
@@ -148,28 +163,32 @@ def set_webcam():
 The application includes buttons and labels for interactivity:
 ```python
 # Title
-title_label = Label(window, text="YOLOv8 Object Detection", font=("Helvetica", 18, "bold"), bg="#23272A", fg="white")
+title_label = Label(window, text="YOLOv8 Object Detection", font=font_title, bg="#23272A", fg="white")
 title_label.pack(pady=20)
 
 # Buttons
-select_button = tk.Button(window, text="Select Video", command=select_video, font=("Helvetica", 12), bg="#7289DA", fg="white", relief="flat")
+select_button = tk.Button(window, text="Select Video", command=select_video, font=font_buttons, bg="#7289DA", fg="white", relief="flat")
 select_button.pack(pady=10)
 
-webcam_button = tk.Button(window, text="Use Webcam", command=set_webcam, font=("Helvetica", 12), bg="#7289DA", fg="white", relief="flat")
+webcam_button = tk.Button(window, text="Use Webcam", command=set_webcam, font=font_buttons, bg="#7289DA", fg="white", relief="flat")
 webcam_button.pack(pady=10)
 
-start_button = tk.Button(window, text="Start Detection", command=start_detection, font=("Helvetica", 12), bg="#43B581", fg="white", relief="flat")
+image_button = tk.Button(window, text="Select Image", command=select_image, font=font_buttons, bg="#7289DA", fg="white", relief="flat")
+image_button.pack(pady=10)
+
+start_button = tk.Button(window, text="Start Detection", command=start_detection, font=font_buttons, bg="#43B581", fg="white", relief="flat")
 start_button.pack(pady=10)
 
-stop_button = tk.Button(window, text="Stop Detection", command=stop_detection, font=("Helvetica", 12), bg="#F04747", fg="white", relief="flat")
+stop_button = tk.Button(window, text="Stop Detection", command=stop_detection, font=font_buttons, bg="#F04747", fg="white", relief="flat")
 stop_button.pack(pady=10)
 
 # Status Label
-status_label = Label(window, text="Status: Idle", font=("Helvetica", 10), bg="#2C2F33", fg="white")
+status_label = Label(window, text="Status: Idle", font=font_status, bg="#2C2F33", fg="white")
 status_label.pack(pady=20)
 ```
-- **Select Video**: Opens a file dialog.
+- **Select Video**: Opens a file dialog to select a video.
 - **Use Webcam**: Switches to webcam input.
+- **Select Image**: Opens a file dialog to select an image.
 - **Start Detection**: Begins object detection.
 - **Stop Detection**: Stops the detection process.
 
